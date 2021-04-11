@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	"go-grpc/proto"
+	"famesensor/go-grpc-learn/proto"
 	"log"
 
 	"google.golang.org/grpc"

@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"errors"
-	"famesensor/go-grpc-learn/proto"
+	v1 "famesensor/go-grpc-learn/v1"
 	"flag"
 	"log"
 	"net"
@@ -15,23 +15,23 @@ import (
 )
 
 type server struct {
-	proto.UnimplementedHelloServiceServer
+	v1.UnimplementedHelloServiceServer
 }
 
-func (s *server) Password(ctx context.Context, request *proto.PasswordRequest) (*proto.PasswordResponse, error) {
+func (s *server) Password(ctx context.Context, request *v1.PasswordRequest) (*v1.PasswordResponse, error) {
 	if request.Password.Password != request.Password.ConfirmPassword {
 		return nil, status.Error(codes.InvalidArgument, errors.New("Error password").Error())
 	}
 
-	return &proto.PasswordResponse{
+	return &v1.PasswordResponse{
 		Status:  "success",
 		Message: "Password",
 	}, nil
 }
 
-func (s *server) Hello(ctx context.Context, request *proto.HelloRequest) (*proto.HelloReponse, error) {
+func (s *server) Hello(ctx context.Context, request *v1.HelloRequest) (*v1.HelloReponse, error) {
 	name := request.Name
-	reponse := &proto.HelloReponse{
+	reponse := &v1.HelloReponse{
 		Greeting: "Hello " + name,
 	}
 	return reponse, nil
@@ -47,7 +47,7 @@ func main() {
 
 	srv := grpc.NewServer()
 	// auto generate file protobuf file
-	proto.RegisterHelloServiceServer(srv, &server{})
+	v1.RegisterHelloServiceServer(srv, &server{})
 	reflection.Register(srv)
 
 	if err := srv.Serve(lis); err != nil {

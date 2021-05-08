@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	"famesensor/go-grpc-learn/proto"
+	v1 "famesensor/go-grpc-learn/v1"
 	"log"
 
 	"google.golang.org/grpc"
@@ -18,8 +18,8 @@ func main() {
 	}
 	defer cc.Close()
 
-	client := proto.NewHelloServiceClient(cc)
-	request := &proto.HelloRequest{Name: "Fame"}
+	client := v1.NewHelloServiceClient(cc)
+	request := &v1.HelloRequest{Name: "Fame"}
 
 	res, err := client.Hello(context.Background(), request)
 	if err != nil {

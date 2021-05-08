@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"errors"
-	v1 "famesensor/go-grpc-learn/v1"
+	v1 "famesensor/go-grpc-learn/unary/proto/v1"
 	"flag"
 	"log"
 	"net"

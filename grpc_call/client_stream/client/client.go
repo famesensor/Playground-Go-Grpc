@@ -46,5 +46,5 @@ func main() {
 	}
 
 	// Print the response errors message
-	fmt.Printf("Message errors: %v \n", res.Message)
+	fmt.Printf("Message errors: %v \n", res.MessageError)
 }

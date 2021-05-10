@@ -12,3 +12,5 @@ gen-proto-unary:
 gen-proto-client-stream:
 	protoc --proto_path=./grpc_call/client_stream/proto --go_out=plugins=grpc:./grpc_call/client_stream/proto api.proto
 
+gen-proto-server-stream:
+	protoc --proto_path=./grpc_call/server_stream/proto --go_out=plugins=grpc:./grpc_call/server_stream/proto api.proto

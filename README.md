@@ -3,7 +3,7 @@ _This project for self-learning client connect service golang by grpc_
 #### GRPC connect type...
 - Unary RPC
 - Client streaming RPC
-- Server streaming RPC (🚧      in progess...)
+- Server streaming RPC
 - Bidirectional streaming RPC (🚧     in progess...)
 
 ## Installation
@@ -16,11 +16,16 @@ go get google.golang.org/protobuf/cmd/protoc-gen-go google.golang.org/grpc/cmd/p
 ```
 # Unary
 proto : make gen-proto-unary
-client ./unary/clinet : go run client.go
-service ./unary/server : go run server.go
+client : go run ./unary/clinet/client.go
+service  : go run ./unary/server/server.go
 
 # Client stream
 proto : make gen-proto-client-stream
-client ./grpc_call/client_stream/client : go run client.go
-service ./grpc_call/client_stream/server : go run server.go
+client : go run ./grpc_call/client_stream/client/client.go
+service : go run ./grpc_call/client_stream/server/server.go
+
+# Server stream
+proto : make gen-proto-server-stream
+client : go run ./grpc_call/server_stream/client/client.go
+service : go run ./grpc_call/server_stream/server/server.go
 ```

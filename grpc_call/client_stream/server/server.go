@@ -33,7 +33,7 @@ func main() {
 }
 
 // ValidateBooks function
-func (*server) SendMessage(stream v1.MessageService_SendMessageServer) error {
+func (srv *server) SendMessage(stream v1.MessageService_SendMessageServer) error {
 	logrus.Info("Send Message Function")
 
 	// Initialize the message reponse

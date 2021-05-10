@@ -1,5 +1,20 @@
 syntax = "proto3";
 
 package temperature;
-option go_package = "/temperature";
+option go_package = "/";
 
+service TemperatureService {
+    rpc GetTemperature(TemperatureRequest) returns (stream TemperatureResponse);
+}
+
+message TemperatureRequest {
+    string message = 1;
+}
+
+message TemperatureResponse {
+    repeated Temperature temperature = 1;
+}
+
+message Temperature {
+    float temperature = 1;
+}

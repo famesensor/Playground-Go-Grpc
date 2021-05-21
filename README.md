@@ -4,7 +4,7 @@ _This project for self-learning client connect service golang by grpc_
 - Unary RPC
 - Client streaming RPC
 - Server streaming RPC
-- Bidirectional streaming RPC (🚧     in progess...)
+- Bidirectional streaming RPC
 
 ## Installation
 ```
@@ -28,4 +28,9 @@ service : go run ./grpc_call/client_stream/server/server.go
 proto : make gen-proto-server-stream
 client : go run ./grpc_call/server_stream/client/client.go
 service : go run ./grpc_call/server_stream/server/server.go
+
+# Bidirectional stream
+proto : make gen-proto-bi-direction-stream
+client : go run ./grpc_call/bi_directional_stream/client/client.go
+service : go run ./grpc_call/bi_directional_stream/server/server.go
 ```

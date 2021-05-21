@@ -14,3 +14,6 @@ gen-proto-client-stream:
 
 gen-proto-server-stream:
 	protoc --proto_path=./grpc_call/server_stream/proto --go_out=plugins=grpc:./grpc_call/server_stream/proto api.proto
+
+gen-proto-bi-directional-stream:
+	protoc --proto_path=./grpc_call/bi_directional_stream/proto --go_out=plugins=grpc:./grpc_call/bi_directional_stream/proto api.proto
